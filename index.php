@@ -36,12 +36,37 @@
 			<li>Add shipping country of origin</li>
 			<li>Add processing time for item</li>
 			<li>If someone else helped create the item, add their name</li>
-			<li>Add shop section to item if necesary</li>
+			<li>Add shop section to item if necessary</li>
 			<li>Add tags to item to help in searching</li>
 			<li>Publish listing</li>
-
 		</ol>
 		<h2>Conceptual Model</h2>
+		<h4>Entities and Attributes</h4>
+		<p>seller</p>
+		<p>sellerId</p>
+		<p>sellerName</p>
+		<p>storeName</p>
+		<p>sellerLocation</p>
+
+
+		<p>item</p>
+		<ul>
+			<li>itemId</li>
+			<li>itemName</li>
+			<li>itemDescription</li>
+
+		</ul>
+		<p>photo</p>
+		<ul>
+			<li>photoId</li>
+			<li>itemId</li>
+		</ul>
+
+
+		<h4>Relations</h4>
+		<ul>
+			<li>One item can have many photos (1 to n)</li>
+		</ul>
 
 	</body>
 </html>
