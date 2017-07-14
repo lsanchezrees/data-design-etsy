@@ -25,14 +25,16 @@
 			<li>User adds the item's photo</li>
 			<li>User may add additional photo(s) if desired</li>
 			<li>User adds "about this listing" to pick from the three Etsy categories</li>
-			<li>User adds price</li>
 			<li>User adds tax, if necessary</li>
-			<li>User adds number available</li>
+			<li>User adds number available (inventory)</li>
 			<li>User determines category of item</li>
 			<li>Add options/atttributes for item (color, size, material, for example)</li>
 			<li>User sets up renewal options (auto or manual)</li>
 			<li>Choose the item type (physical vs digital)</li>
-			<li>Add shipping information for item</li>
+			<li>User adds price (and price variations, if necessary)</li>
+			<li>Add shipping costs for item</li>
+			<li>Add shipping country of origin</li>
+			<li>Add processing time for item</li>
 			<li>If someone else helped create the item, add their name</li>
 			<li>Add shop section to item if necesary</li>
 			<li>Add tags to item to help in searching</li>
