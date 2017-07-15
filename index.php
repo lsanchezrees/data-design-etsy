@@ -16,13 +16,13 @@
 		<p>Goals: Her goal is to increase her income by selling her jewelry online.  She also hopes that selling online will expose her to new audiences and perhaps bring her some fame.</p>
 		<p>User Story: As a user, Sally needs to be able to place products in her store, fill orders easily, and keep track of what's been sold.</p>
 		<h2>Use Case</h2>
-		<p>Sally has completed a new piece of jewelry, and she would like to make it available to sell.  It is 11:30 on a Wednesday morning.  She is in her home. She needs to take a picture with her camera.  (She prefers to use this and then upload it to her computer.) First she will create a store on Etsy, and then she will add the new piece of jewelry to her online store and make it available.  She wants to get this done by early afternoon. </p>
+		<p>Sally has completed a new piece of jewelry, and she would like to make it available to sell.  It is 11:30 on a Wednesday morning.  She is in her home. She needs to take a picture with her camera.  (She prefers to use this and then upload it to her computer.) She already has a store on Etsy, so she will add the new piece of jewelry to her online store and make it available.  She wants to get this done by early afternoon. </p>
 		<h2>Interaction Flow</h2>
 		<ol>
 			<li>After the user has logged into their store, user adds a new item</li>
-			<li>User adds item's name/title</li>
-			<li>User adds item's description</li>
-			<li>User adds the item's photo</li>
+			<li>Add item's name/title</li>
+			<li>Add item's description</li>
+			<li>Add the item's photo</li>
 			<li>User may add additional photo(s) if desired</li>
 			<li>User adds "about this listing" to pick from the three Etsy categories</li>
 			<li>User adds number available (inventory)</li>
@@ -40,6 +40,7 @@
 			<li>Add tags to item to help in searching</li>
 			<li>Publish listing</li>
 		</ol>
+
 		<h2>Conceptual Model</h2>
 		<h3>Entities and Attributes</h3>
 		<p>Seller</p>
