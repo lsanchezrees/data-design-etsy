@@ -19,26 +19,21 @@
 		<p>Sally has completed a new piece of jewelry, and she would like to make it available to sell.  It is 11:30 on a Wednesday morning.  She is in her home. She needs to take a picture with her camera.  (She prefers to use this and then upload it to her computer.) She already has a store on Etsy, so she will add the new piece of jewelry to her online store and make it available.  She wants to get this done by early afternoon. </p>
 		<h2>Interaction Flow</h2>
 		<ol>
-			<li>After the user has logged into their store, user adds a new item</li>
-			<li>Add item's name/title</li>
-			<li>Add item's description</li>
-			<li>Add the item's photo</li>
-			<li>User may add additional photo(s) if desired</li>
-			<li>User adds "about this listing" to pick from the three Etsy categories</li>
-			<li>User adds number available (inventory)</li>
-			<li>User determines category of item</li>
-			<li>Add options/attributes for item (color, size, material, for example)</li>
+			<li>User opens browser and goes to etsy.com</li>
+			<li>After logs into her store</li>
+			<li>User clicks button to add a new item</li>
+			<li>User adds item's name/title</li>
+			<li>User adds item's description</li>
+			<li>User adds the item's photo</li>
+			<li>User may add additional photo(s)</li>
+			<li>User adds item number available (inventory)</li>
+			<li>User adds options/attributes for item (color, size, material, for example)</li>
 			<li>User sets up renewal options (auto or manual)</li>
-			<li>Choose the item type (physical vs digital)</li>
+			<li>User chooses the item type (physical vs digital)</li>
 			<li>User adds price</li>
 			<li>User adds tax, if necessary</li>
-			<li>Add shipping costs for item</li>
-			<li>Add shipping country of origin</li>
-			<li>Add processing time for item</li>
-			<li>If someone else helped create the item, add their name</li>
-			<li>Add shop section to item if necessary</li>
-			<li>Add tags to item to help in searching</li>
-			<li>Publish listing</li>
+			<li>User adds tags to item to help in searching</li>
+			<li>User clicks on button to publish listing</li>
 		</ol>
 
 		<h2>Conceptual Model</h2>
