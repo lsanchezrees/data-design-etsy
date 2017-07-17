@@ -49,6 +49,11 @@
 			<li>sellerName</li>
 			<li>sellerStoreName</li>
 			<li>sellerLocation</li>
+			<li>sellerPhone</li>
+			<li>sellerEmail</li>
+			<li>sellerHash</li>
+			<li>sellerSalt</li>
+
 		</ul>
 
 		<p>Item</p>
@@ -61,10 +66,6 @@
 			<li>itemType</li>
 			<li>itemPrice</li>
 			<li>itemTax</li>
-			<li>itemShippingCosts</li>
-			<li>itemShippingCountryOfOrigin</li>
-			<li>itemProcessingTime</li>
-			<li>itemCoProducer</li>
 			<li>itemSellerId (foreign key)</li>
 		</ul>
 
