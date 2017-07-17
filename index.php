@@ -20,7 +20,7 @@
 		<h2>Interaction Flow</h2>
 		<ol>
 			<li>User opens browser and goes to etsy.com</li>
-			<li>After logs into her store</li>
+			<li>User logs into her store</li>
 			<li>User clicks button to add a new item</li>
 			<li>User adds item's name/title</li>
 			<li>User adds item's description</li>
