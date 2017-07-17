@@ -45,7 +45,7 @@
 		<h3>Entities and Attributes</h3>
 		<p>Seller</p>
 		<ul>
-			<li>sellerId</li>
+			<li>sellerId (primary key)</li>
 			<li>sellerName</li>
 			<li>sellerStoreName</li>
 			<li>sellerLocation</li>
@@ -53,7 +53,7 @@
 
 		<p>Item</p>
 		<ul>
-			<li>itemId</li>
+			<li>itemId (primary key)</li>
 			<li>itemName</li>
 			<li>itemDescription</li>
 			<li>itemQuantity</li>
@@ -65,13 +65,13 @@
 			<li>itemShippingCountryOfOrigin</li>
 			<li>itemProcessingTime</li>
 			<li>itemCoProducer</li>
-			<li>itemStoreSection</li>
+			<li>itemSellerId (foreign key)</li>
 		</ul>
 
 		<p>Photo</p>
 		<ul>
-			<li>photoId</li>
-			<li>photoItemId</li>
+			<li>photoId (primary key)</li>
+			<li>photoItemId (foreign key)</li>
 			<li>photoPath</li>
 		</ul>
 
