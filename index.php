@@ -47,7 +47,7 @@
 		<ul>
 			<li>sellerId</li>
 			<li>sellerName</li>
-			<li>storeName</li>
+			<li>sellerStoreName</li>
 			<li>sellerLocation</li>
 		</ul>
 
@@ -56,47 +56,31 @@
 			<li>itemId</li>
 			<li>itemName</li>
 			<li>itemDescription</li>
-			<li>aboutListingCategory</li>
-			<li>quantity</li>
-			<li>itemCategory</li>
-			<li>autoRenew</li>
+			<li>itemQuantity</li>
+			<li>itemAutoRenew</li>
 			<li>itemType</li>
 			<li>itemPrice</li>
-			<li>tax</li>
-			<li>shippingCosts</li>
-			<li>shippingCountryOfOrigin</li>
-			<li>processingTime</li>
-			<li>coProducer</li>
-			<li>storeSection</li>
+			<li>itemTax</li>
+			<li>itemShippingCosts</li>
+			<li>itemShippingCountryOfOrigin</li>
+			<li>itemProcessingTime</li>
+			<li>itemCoProducer</li>
+			<li>itemStoreSection</li>
 		</ul>
 
 		<p>Photo</p>
 		<ul>
 			<li>photoId</li>
-			<li>itemId</li>
-		</ul>
-
-		<p>ItemAttributes</p>
-		<ul><li>itemId</li>
-			<li>attributeId</li>
-			<li>attributeType</li>
-			<li>attributeDescription</li>
+			<li>photoItemId</li>
+			<li>photoPath</li>
 		</ul>
 
 
-		<p>Tags</p>
-		<ul>
-			<li>tagId</li>
-			<li>tagDescription</li>
-			<li>itemId</li>
-		</ul>
 
 		<h3>Relations</h3>
 		<ul>
 			<li>One seller can have many items (1 to n)</li>
 			<li>One item can have many photos (1 to n)</li>
-			<li>One item can have many attributes (t to n)</li>
-			<li>One item can have many tags (1 to n) </li>
 		</ul>
 
 	</body>
