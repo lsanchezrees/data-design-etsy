@@ -24,8 +24,9 @@
 			<li>User clicks button to add a new item</li>
 			<li>User adds item's name/title</li>
 			<li>User adds item's description</li>
-			<li>User adds the item's photo</li>
-			<li>User may add additional photo(s)</li>
+			<li>User clicks button to add photo</li>
+			<li>User uploads the photo</li>
+			<li>If user has more photos, user uploads additional photo(s)</li>
 			<li>User adds item number available (inventory)</li>
 			<li>User adds options/attributes for item (color, size, material, for example)</li>
 			<li>User sets up renewal options (auto or manual)</li>
