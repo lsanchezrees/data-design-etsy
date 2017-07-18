@@ -80,5 +80,8 @@
 			<li>One item can have many photos (1 to n)</li>
 		</ul>
 
+		<h2>Entity Relationship Diagram</h2>
+<img src="images/erd.svg" alt="ERD">
+
 	</body>
 </html>
