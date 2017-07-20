@@ -116,6 +116,27 @@ INSERT INTO item
 	3
 	);
 
+INSERT INTO item
+(itemName,
+ itemDescription,
+ itemQuantity,
+ itemAutoRenew,
+ itemType,
+ itemPrice,
+ itemTax,
+ itemSellerId)
+VALUES
+	("Hello Kitty backpack",
+	 "Beautiful backpack with Hello Kitty woven into it",
+	 1000,
+	 1,
+	 "Backpack",
+	 10.00,
+	 0,
+	 3
+	);
+
+
 	INSERT INTO item
 	(itemName,
 	itemDescription,
@@ -209,15 +230,18 @@ INSERT INTO photo
 	"c:/documents/pictures/elvis-lives2.jpg"
 	);
 --  update a seller
+UPDATE seller
+SET sellerEmail = "annabanana1@gmail.com"
+WHERE sellerId = 3;
 
---  update an item
-
+--  update an item --remove one since one was purchased
+UPDATE item
+SET itemQuantity = itemQuantity - 1
+WHERE itemId = 2;
 
 --delete an item
-
-
--- delete
-
+DELETE FROM item
+WHERE itemId = 6;
 
 -- select statements
 
