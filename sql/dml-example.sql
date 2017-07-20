@@ -244,5 +244,18 @@ DELETE FROM item
 WHERE itemId = 6;
 
 -- select statements
+SELECT itemId, itemName, itemDescription,itemQuantity
+FROM item
+WHERE itemQuantity > 100;
 
 -- advanced queries
+SELECT photoId, photoItemId, photoPath, itemId,itemName
+FROM photo
+	INNER JOIN item ON item.itemId = photo.photoItemId
+WHERE item.itemName LIKE "%Elvis%"
+;
+
+SELECT itemSellerId, count(itemSellerId)
+FROM item
+GROUP BY itemSellerId
+HAVING COUNT(itemSellerId) > 1;
