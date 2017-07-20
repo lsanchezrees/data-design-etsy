@@ -1,4 +1,3 @@
--- can run these queries piece by piece
 -- insert three new sellers
 INSERT INTO seller
 	(sellerName,
@@ -47,8 +46,7 @@ INSERT INTO seller
 	sellerHash,
 	sellerSalt )
 	VALUES
-	(
-	"Jane Plain",
+	("Jane Plain",
 	"Kitsch and More",
 	"Oklahome, OK",
 	"505-555-9898",
@@ -57,13 +55,159 @@ INSERT INTO seller
 	"j29nkNKN128398u"
 	);
 
--- insert items for the first two sellers
+-- insert items for the sellers
+INSERT INTO item
+	(itemName,
+	itemDescription,
+	itemQuantity,
+	itemAutoRenew,
+	itemType,
+	itemPrice,
+	itemTax,
+	itemSellerId)
+	VALUES
+	("Multicolored Earrings",
+	"Beautiful blue and green tear-drop shaped earrings",
+	15,
+	1,
+	"Earrings",
+	30.00,
+	5.00,
+	2
+	);
 
+INSERT INTO item
+	(itemName,
+	itemDescription,
+	itemQuantity,
+	itemAutoRenew,
+	itemType,
+	itemPrice,
+	itemTax,
+	itemSellerId)
+	VALUES
+	("Multicolored Necklace",
+	"Beautiful blue and green tear-drop shaped pendant on a silver chain",
+	15,
+	1,
+	"Necklace",
+	35.00,
+	5.00,
+	2
+	);
 
+	INSERT INTO item
+	(itemName,
+	itemDescription,
+	itemQuantity,
+	itemAutoRenew,
+	itemType,
+	itemPrice,
+	itemTax,
+	itemSellerId)
+	VALUES
+	("Hello Kitty Scarf",
+	"Beautiful scarf with Hello Kitty woven into it",
+	1000,
+	1,
+	"Scarf",
+	10.00,
+	0,
+	3
+	);
+
+	INSERT INTO item
+	(itemName,
+	itemDescription,
+	itemQuantity,
+	itemAutoRenew,
+	itemType,
+	itemPrice,
+	itemTax,
+	itemSellerId)
+	VALUES
+	("Ma Kettle Cutout",
+	"Ma Kettle cutout for your front yard",
+	15000,
+	1,
+	"Cutout",
+	15.00,
+	0,
+	4
+	);
+
+-- insert item using a subquery to find the sellerName
+	INSERT INTO item
+	(itemName,
+	itemDescription,
+	itemQuantity,
+	itemAutoRenew,
+	itemType,
+	itemPrice,
+	itemTax,
+	itemSellerId)
+	VALUES
+	("Wax Elvis Statue",
+	"Beautiful lifesize statue of Elvis made completely out of wax",
+	1000,
+	1,
+	"Statue",
+	150.00,
+	0,
+	(SELECT sellerId FROM seller WHERE sellerName = "Jane Plain")
+	);
 -- insert a photo for each item, and insert two photos for
 -- at least one item
+-- yes, I know the photoPath is the path on Etsy's server,
+-- but for simplicity's sake I put a local path.
 
+INSERT INTO photo
+	(photoItemId,
+	photoPath)
+	VALUES
+	(1,
+	"c:/documents/pictures/earrings.jpg"
+	);
 
+INSERT INTO photo
+	(photoItemId,
+	photoPath)
+	VALUES
+	(2,
+	"c:/documents/pictures/necklace.jpg"
+	);
+
+	INSERT INTO photo
+	(photoItemId,
+	photoPath)
+	VALUES
+	(3,
+	"c:/documents/pictures/scarf.jpg"
+	);
+
+	INSERT INTO photo
+	(photoItemId,
+	photoPath)
+	VALUES
+	(4,
+	"c:/documents/pictures/ma-kettle.jpg"
+	);
+
+	INSERT INTO photo
+	(photoItemId,
+	photoPath)
+	VALUES
+	(5,
+	"c:/documents/pictures/elvis-lives1.jpg"
+	);
+
+	INSERT INTO photo
+	(photoItemId,
+	photoPath)
+	VALUES
+	(5,
+	"c:/documents/pictures/elvis-lives2.jpg"
+	);
 --  update a seller
 
 --  update an item
