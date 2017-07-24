@@ -152,7 +152,7 @@ class Seller {
 	 * @return string value of seller location
 	 *
 	 **/
-	public function getSelleLocation() : string {
+	public function getSellerLocation() : string {
 		return($this->sellerLocation);
 	}
 	/**
@@ -175,9 +175,74 @@ class Seller {
 		if(strlen($newSellerLocation) > 128){
 			throw(new \RangeException("seller location too large"));
 		}
-		//store the seller store name
-		$this->sellerLocation = $newSellerLocation
+		//store the seller location
+		$this->sellerLocation = $newSellerLocation;
 	}
+
+	/**
+	 * accessor method for seller phone
+	 * @return string value of seller phone
+	 *
+	 **/
+	public function getSellerPhone() : string {
+		return($this->sellerPhone);
+	}
+	/**
+	 * mutator method for seller phone
+	 * @param string $newSellerPhone new value of seller phone
+	 * @throws \InvalidArgumentException if $newSellerPhone is not a string or is not secure
+	 * @throws \RangeException if $newSellerPhone > 32 characters
+	 * @throws \TypeError if $newSellerPhone is not an string
+	 *
+	 **/
+	public function setSellerPhone(string $newSellerPhone) : void {
+		//verify seller name is secure
+		$newSellerPhone = trim($newSellerPhone);
+		$newSellerPhone = filter_var($newSellerPhone, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+
+		if(empty($newSellerPhone) ===true) {
+			throw(new \InvalidArgumentException("seller phone is empty or insecure"));
+		}
+		// verify the seller location will fit in the database
+		if(strlen($newSellerPhone) > 32){
+			throw(new \RangeException("seller phone too large"));
+		}
+		//store the seller phone
+		$this->sellerPhone = $newSellerPhone;
+	}
+	/**
+	 * accessor method for seller email
+	 * @return string value of seller email
+	 *
+	 **/
+	public function getSellerEmail() : string {
+		return($this->sellerEmail);
+	}
+	/**
+	 * mutator method for seller email
+	 * @param string $newSellerEmail new value of seller email
+	 * @throws \InvalidArgumentException if $newSellerEmail is not a string or is not secure
+	 * @throws \RangeException if $newSellerEmail > 128 characters
+	 * @throws \TypeError if $newSellerEmail is not an string
+	 *
+	 **/
+	public function setSellerEmail(string $newSellerEmail) : void {
+		//verify seller email is secure
+		$newSellerEmail = trim($newSellerEmail);
+		$newSellerEmail = filter_var($newSellerEmail, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+
+		if(empty($newSellerEmail) ===true) {
+			throw(new \InvalidArgumentException("seller email is empty or insecure"));
+		}
+		// verify the seller location will fit in the database
+		if(strlen($newSellerEmail) > 128){
+			throw(new \RangeException("seller email too large"));
+		}
+		//store the seller email
+		$this->sellerEmail = $newSellerEmail;
+	}
+
+
 
 
 
