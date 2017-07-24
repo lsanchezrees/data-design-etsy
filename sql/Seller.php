@@ -137,7 +137,7 @@ class Seller {
 		$newSellerStoreName = trim($newSellerStoreName);
 		$newSellerStoreName = filter_var($newSellerStoreName, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
-		if(empty($newSellerStoreNameName) ===true) {
+		if(empty($newSellerStoreName) ===true) {
 			throw(new \InvalidArgumentException("seller store name is empty or insecure"));
 		}
 		// verify the seller name will fit in the database
@@ -147,7 +147,37 @@ class Seller {
 		//store the seller store name
 		$this->sellerStoreName = $newSellerStoreName;
 	}
+	/**
+	 * accessor method for seller location
+	 * @return string value of seller location
+	 *
+	 **/
+	public function getSelleLocation() : string {
+		return($this->sellerLocation);
+	}
+	/**
+	 * mutator method for seller location
+	 * @param string $newSellerLocation new value of seller location
+	 * @throws \InvalidArgumentException if $newSellerLocation is not a string or is not secure
+	 * @throws \RangeException if $newSellerLocation > 128 characters
+	 * @throws \TypeError if $newSellerLocation is not an string
+	 *
+	 **/
+	public function setSellerLocation(string $newSellerLocation) : void {
+		//verify seller name is secure
+		$newSellerLocation = trim($newSellerLocation);
+		$newSellerLocation = filter_var($newSellerLocation, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
+		if(empty($newSellerLocation) ===true) {
+			throw(new \InvalidArgumentException("seller location is empty or insecure"));
+		}
+		// verify the seller location will fit in the database
+		if(strlen($newSellerLocation) > 128){
+			throw(new \RangeException("seller location too large"));
+		}
+		//store the seller store name
+		$this->sellerLocation = $newSellerLocation
+	}
 
 
 
