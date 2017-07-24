@@ -241,6 +241,73 @@ class Seller {
 		//store the seller email
 		$this->sellerEmail = $newSellerEmail;
 	}
+	/**
+	 * accessor method for sellerHash
+	 *
+	 * @return string value of seller hash
+	 */
+	public function getSellerHash(): string {
+		return $this->sellerHash;
+	}
+	/**
+	 * mutator method for seller hash password
+	 *
+	 * @param string $newSellerHash
+	 * @throws \InvalidArgumentException if the hash is not secure
+	 * @throws \RangeException if the hash is not 128 characters
+	 * @throws \TypeError if profile hash is not a string
+	 */
+	public function setSellerHash(string $newSellerHash): void {
+		//enforce that the hash is properly formatted
+		$newSellerHash = trim($newSellerHash);
+		$newSellerHash = strtolower($newSellerHash);
+		if(empty($newSellerHash) === true) {
+			throw(new \InvalidArgumentException("seller password hash empty or insecure"));
+		}
+		//enforce that the hash is a string representation of a hexadecimal
+		if(!ctype_xdigit($newSellerHash)) {
+			throw(new \InvalidArgumentException("seller password hash is empty or insecure"));
+		}
+		//enforce that the hash is exactly 128 characters.
+		if(strlen($newSellerHash) !== 128) {
+			throw(new \RangeException("seller hash must be 128 characters"));
+		}
+		//store the hash
+		$this->sellerHash = $newSellerHash;
+	}
+
+	/**
+	 *accessor method for seller salt
+	 *
+	 * @return string representation of the salt hexadecimal
+	 */
+	public function getSellerSalt(): string {
+		return $this->sellerSalt;
+	}
+	/**
+	 * mutator method for seller salt
+	 *
+	 * @param string $newSellerSalt
+	 * @throws \InvalidArgumentException if the salt is not secure
+	 * @throws \RangeException if the salt is not 64 characters
+	 * @throws \TypeError if seller salt is not a string
+	 */
+	public function setSellerSalt(string $newSellerSalt): void {
+		//enforce that the salt is properly formatted
+		$newSellerSalt = trim($newSellerSalt);
+		$newSellerSalt = strtolower($newSellerSalt);
+		//enforce that the salt is a string representation of a hexadecimal
+		if(!ctype_xdigit($newSellerSalt)) {
+			throw(new \InvalidArgumentException("seller password salt is empty or insecure"));
+		}
+		//enforce that the salt is exactly 64 characters.
+		if(strlen($newSellerSalt) !== 64) {
+			throw(new \RangeException("seller salt must be 64 characters"));
+		}
+		//store the salt
+		$this->sellerSalt = $newSellerSalt;
+	}
+
 
 
 
