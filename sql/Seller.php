@@ -52,6 +52,42 @@ class Seller {
 	private $sellerSalt;
 
 	/**
+	 * constructor for the Seller class
+	 *
+	 * @param int|null $newSellerId id of this seller or null if
+	 * it's a new seller
+	 * @param string $newSellerName string containing seller name
+	 * @param string $newSellerStoreName string containing seller store name
+	 * @param string $newSellerLocation string containing seller location
+	 * @param string $newSellerPhone string containing seller phone
+	 * @param string $newSellerEmail string containing seller email
+	 * @param string $newSellerHash string containing hash of seller password
+	 * @param string $newSellerSalt string containing salt for seller
+	 * @throws \InvalidArgumentException if data types are not valid
+	 * @throws \RangeException if data values are out of range (string too long, integers not positive)
+	 * @throws \TypeError if data types violate type hints
+	 * @throws \Exception if some other exception occurs
+	 * @Documentation https://secure.php.net/manual/en/language.oop5.decon.php
+	 **/
+	public function __construct(?int $newSellerId, string $newSellerName, string $newSellerStoreName, string $newSellerLocation, string $newSellerPhone, string $newSellerEmail, string $newSellerHash, string $newSellerSalt) {
+		try {
+			$this->setSellerId($newSellerId);
+			$this->setSellerName($newSellerName);
+			$this->setSellerStoreName($newSellerStoreName);
+			$this->setSellerLocation($newSellerLocation);
+			$this->setSellerPhone($newSellerPhone);
+			$this->setSellerEmail($newSellerEmail);
+			$this->setSellerHash($newSellerHash);
+			$this->setSellerSalt($newSellerSalt);
+		}
+		//determine the exception type thrown
+		catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
+			$exceptionType = get_class($exception);
+			throw(new $exceptionType($exception->getMessage(), 0, $exception));
+		}
+	}
+
+	/**
 	 * Accessor method for seller id
 	 *
 	 * @return int | null value of seller id
