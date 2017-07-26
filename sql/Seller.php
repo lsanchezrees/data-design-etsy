@@ -404,5 +404,16 @@ class Seller {
 		$statement->execute($parameters);
 	}
 
+	/**
+	 * deletes this Seller from mySQL
+	 *
+	 * @param \PDO $pdo PDO connection object
+	 * @throws \PDOException when mySQL-related errors occur
+	 * @throws \TypeError if $pdo is not a PDO connection object
+	 **/
+	public function delete(\PDO $pdo) : void {
+
+	}
+
 
 }
