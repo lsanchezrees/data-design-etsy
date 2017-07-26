@@ -412,8 +412,20 @@ class Seller {
 	 * @throws \TypeError if $pdo is not a PDO connection object
 	 **/
 	public function delete(\PDO $pdo) : void {
+		//enforce the sellerId is not null (don't delete a seller that hasn't been inserted)
+		if($this->sellerId === null) {
+			throw(new \PDOException("unable to delete a seller that doesn't exist"));
+		}
 
+		//create query template
+		$query = "DELETE FROM seller WHERE sellerId = :sellerId";
+		$statement = $pdo->prepare($query);
+
+		//bind the member variables to the placeholder in the template
+		$parameters = ["sellerId" => $this->sellerId];
+		$statement->execute($parameters);
 	}
+
 
 
 }
