@@ -383,5 +383,26 @@ class Seller {
 		$this->sellerId = intval($pdo->lastInsertId());
 	}
 
+	/**
+	 * updates the Seller in mySQL
+	 *
+	 * @param \PDO $pdo PDO connection object
+	 * @throws \PDOException when mySQL-related errors occur
+	 * @throws \TypeError if $pdo is not a pdo connection object
+	 **/
+	public function update(\PDO $pdo) : void {
+		//enforce the sellerId is not null (ie, don't update a seller that has not been inserted
+		if($this->sellerId === null) {
+			throw(new \PDOException("unable to update a seller that does not exist"));
+		}
+		//create query template
+		$query = "UPDATE seller SET sellerName = :sellerName, sellerStoreName = :sellerStoreName, sellerLocation = :sellerLocation, sellerEmail = :sellerEmail, sellerPhone = :sellerPhone, sellerHash = :sellerHash, sellerSalt = :sellerSalt WHERE sellerId = :sellerId";
+		$statement = $pdo->prepare($query);
+
+		//bind the member variables to the place holders in the template
+		$parameters = ["sellerName" => $this->sellerName, "sellerStoreName" => $this->sellerStoreName, "sellerLocation" => $this->sellerLocation, "sellerEmail" => $this->sellerEmail, "sellerPhone" => $this->sellerPhone, "sellerHash" => $this->sellerHash, "sellerSalt" => $this->sellerSalt];
+		$statement->execute($parameters);
+	}
+
 
 }
