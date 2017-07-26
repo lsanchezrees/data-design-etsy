@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Seller profile for an Etsy transaction
  *
@@ -79,8 +80,7 @@ class Seller {
 			$this->setSellerEmail($newSellerEmail);
 			$this->setSellerHash($newSellerHash);
 			$this->setSellerSalt($newSellerSalt);
-		}
-		//determine the exception type thrown
+		} //determine the exception type thrown
 		catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
 			$exceptionType = get_class($exception);
 			throw(new $exceptionType($exception->getMessage(), 0, $exception));
@@ -93,9 +93,10 @@ class Seller {
 	 * @return int | null value of seller id
 	 *
 	 **/
-	public function getSellerId() : int {
-		return($this->sellerId);
+	public function getSellerId(): int {
+		return ($this->sellerId);
 	}
+
 	/**
 	 * mutator method for seller id
 	 * @param int | null $newSellerId new value of seller id
@@ -103,7 +104,7 @@ class Seller {
 	 * @throws \TypeError if $newSellerId is not an integer
 	 *
 	 **/
-	public function setSellerId(?int $newSellerId) : void {
+	public function setSellerId(?int $newSellerId): void {
 		//if seller id is null immediately return it
 		if($newSellerId === null) {
 			$this->sellerId = null;
@@ -118,14 +119,16 @@ class Seller {
 		//store the seller id
 		$this->sellerId = $newSellerId;
 	}
+
 	/**
 	 * accessor method for seller name
 	 * @return string value of seller name
 	 *
 	 **/
-	public function getSellerName() : string {
-		return($this->sellerName);
+	public function getSellerName(): string {
+		return ($this->sellerName);
 	}
+
 	/**
 	 * mutator method for seller name
 	 * @param string $newSellerName new value of seller name
@@ -134,32 +137,34 @@ class Seller {
 	 * @throws \TypeError if $newSellerName is not an string
 	 *
 	 **/
-	public function setSellerName(string $newSellerName) : void {
+	public function setSellerName(string $newSellerName): void {
 		//verify seller name is secure
 		$newSellerName = trim($newSellerName);
 
 		$newSellerName = filter_var($newSellerName, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
-		if(empty($newSellerName) ===true) {
+		if(empty($newSellerName) === true) {
 			throw(new \InvalidArgumentException("seller name is empty or insecure"));
-			}
+		}
 		// verify the seller name will fit in the database
-		if(strlen($newSellerName) > 128){
+		if(strlen($newSellerName) > 128) {
 			throw(new \RangeException("seller name too large"));
 		}
 
 		//store the seller name
 		$this->sellerName = $newSellerName;
 
-		}
+	}
+
 	/**
 	 * accessor method for seller store name
 	 * @return string value of seller store name
 	 *
 	 **/
-	public function getSelleStoreName() : string {
-		return($this->sellerStoreName);
+	public function getSelleStoreName(): string {
+		return ($this->sellerStoreName);
 	}
+
 	/**
 	 * mutator method for seller store name
 	 * @param string $newSellerStoreName new value of seller store name
@@ -168,29 +173,31 @@ class Seller {
 	 * @throws \TypeError if $newSellerStoreName is not an string
 	 *
 	 **/
-	public function setSellerStoreName(string $newSellerStoreName) : void {
+	public function setSellerStoreName(string $newSellerStoreName): void {
 		//verify seller name is secure
 		$newSellerStoreName = trim($newSellerStoreName);
 		$newSellerStoreName = filter_var($newSellerStoreName, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
-		if(empty($newSellerStoreName) ===true) {
+		if(empty($newSellerStoreName) === true) {
 			throw(new \InvalidArgumentException("seller store name is empty or insecure"));
 		}
 		// verify the seller name will fit in the database
-		if(strlen($newSellerStoreName) > 128){
+		if(strlen($newSellerStoreName) > 128) {
 			throw(new \RangeException("seller store name too large"));
 		}
 		//store the seller store name
 		$this->sellerStoreName = $newSellerStoreName;
 	}
+
 	/**
 	 * accessor method for seller location
 	 * @return string value of seller location
 	 *
 	 **/
-	public function getSellerLocation() : string {
-		return($this->sellerLocation);
+	public function getSellerLocation(): string {
+		return ($this->sellerLocation);
 	}
+
 	/**
 	 * mutator method for seller location
 	 * @param string $newSellerLocation new value of seller location
@@ -199,16 +206,16 @@ class Seller {
 	 * @throws \TypeError if $newSellerLocation is not an string
 	 *
 	 **/
-	public function setSellerLocation(string $newSellerLocation) : void {
+	public function setSellerLocation(string $newSellerLocation): void {
 		//verify seller name is secure
 		$newSellerLocation = trim($newSellerLocation);
 		$newSellerLocation = filter_var($newSellerLocation, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
-		if(empty($newSellerLocation) ===true) {
+		if(empty($newSellerLocation) === true) {
 			throw(new \InvalidArgumentException("seller location is empty or insecure"));
 		}
 		// verify the seller location will fit in the database
-		if(strlen($newSellerLocation) > 128){
+		if(strlen($newSellerLocation) > 128) {
 			throw(new \RangeException("seller location too large"));
 		}
 		//store the seller location
@@ -220,9 +227,10 @@ class Seller {
 	 * @return string value of seller phone
 	 *
 	 **/
-	public function getSellerPhone() : string {
-		return($this->sellerPhone);
+	public function getSellerPhone(): string {
+		return ($this->sellerPhone);
 	}
+
 	/**
 	 * mutator method for seller phone
 	 * @param string $newSellerPhone new value of seller phone
@@ -231,29 +239,31 @@ class Seller {
 	 * @throws \TypeError if $newSellerPhone is not an string
 	 *
 	 **/
-	public function setSellerPhone(string $newSellerPhone) : void {
+	public function setSellerPhone(string $newSellerPhone): void {
 		//verify seller name is secure
 		$newSellerPhone = trim($newSellerPhone);
 		$newSellerPhone = filter_var($newSellerPhone, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
-		if(empty($newSellerPhone) ===true) {
+		if(empty($newSellerPhone) === true) {
 			throw(new \InvalidArgumentException("seller phone is empty or insecure"));
 		}
 		// verify the seller location will fit in the database
-		if(strlen($newSellerPhone) > 32){
+		if(strlen($newSellerPhone) > 32) {
 			throw(new \RangeException("seller phone too large"));
 		}
 		//store the seller phone
 		$this->sellerPhone = $newSellerPhone;
 	}
+
 	/**
 	 * accessor method for seller email
 	 * @return string value of seller email
 	 *
 	 **/
-	public function getSellerEmail() : string {
-		return($this->sellerEmail);
+	public function getSellerEmail(): string {
+		return ($this->sellerEmail);
 	}
+
 	/**
 	 * mutator method for seller email
 	 * @param string $newSellerEmail new value of seller email
@@ -262,21 +272,22 @@ class Seller {
 	 * @throws \TypeError if $newSellerEmail is not an string
 	 *
 	 **/
-	public function setSellerEmail(string $newSellerEmail) : void {
+	public function setSellerEmail(string $newSellerEmail): void {
 		//verify seller email is secure
 		$newSellerEmail = trim($newSellerEmail);
 		$newSellerEmail = filter_var($newSellerEmail, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
-		if(empty($newSellerEmail) ===true) {
+		if(empty($newSellerEmail) === true) {
 			throw(new \InvalidArgumentException("seller email is empty or insecure"));
 		}
 		// verify the seller location will fit in the database
-		if(strlen($newSellerEmail) > 128){
+		if(strlen($newSellerEmail) > 128) {
 			throw(new \RangeException("seller email too large"));
 		}
 		//store the seller email
 		$this->sellerEmail = $newSellerEmail;
 	}
+
 	/**
 	 * accessor method for sellerHash
 	 *
@@ -285,6 +296,7 @@ class Seller {
 	public function getSellerHash(): string {
 		return $this->sellerHash;
 	}
+
 	/**
 	 * mutator method for seller hash password
 	 *
@@ -320,6 +332,7 @@ class Seller {
 	public function getSellerSalt(): string {
 		return $this->sellerSalt;
 	}
+
 	/**
 	 * mutator method for seller salt
 	 *
@@ -344,11 +357,31 @@ class Seller {
 		$this->sellerSalt = $newSellerSalt;
 	}
 
+	/**
+	 * inserts this Seller into mySQL
+	 *
+	 * @param \PDO $pdo PDO connection object
+	 * @throws \PDOException when mySQL related error occur
+	 * @throws \TypeError if $pdo is not a PDO connection object
+	 **/
+	public function insert(\PDO $pdo) : void {
+		//enforce the SellerId is null --don't insert a seller that
+		//already exists
+		if($this->SellerId != null) {
+			throw(new \PDOException("Not a new seller"));
+		}
 
+		//create query template
+		$query = "INSERT INTO seller (sellerName, sellerStoreName, sellerLocation, sellerPhone, sellerEmail, sellerHash, sellerSalt) VALUES (:sellerName, :sellerStoreName, :sellerLocation, :sellerPhone, :sellerEmail, :sellerHash, :sellerSalt)";
+		$statement = $pdo->prepare($query);
 
+		//bind the member variables to the place holders in the template
+		$parameters = ["sellerName" => $this->sellerName, "sellerStoreName" => $this->sellerStoreName, "sellerLocation" => $this->sellerLocation, "sellerPhone" => $this->sellerPhone, "sellerEmail" => $this->sellerEmail, "sellerHash" => $this->sellerHash, "sellerSalt" => $this->sellerSalt];
+		$statement->execute($parameters);
 
-
-
+		//update the null sellerId with what mySQL just gave us
+		$this->sellerId = intval($pdo->lastInsertId());
+	}
 
 
 }
