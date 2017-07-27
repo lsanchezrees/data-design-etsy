@@ -465,8 +465,50 @@ class Seller {
 	}
 
 	/**
-	 * function to select multiple sellers
-	 */
+	 * function to select multiple sellers--gets an array of sellers based on name
+	 *
+	 * @param \PDO $pdo PDO connection object
+	 * @param string $sellerName - name to search for
+	 * @return \SplFixedArray SplFixedArray of names found
+	 * @throws \PDOException when mySQL related errors occur
+	 * @throws \TypeError when variables are not the correct data type
+	 **/
+	public static function getSellerBySellerName(\PDO $pdo, string $sellerName) : \SplFixedArray {
+		//sanitize the name before searching
+		$sellerName = trim($sellerName);
+		$sellerName = filter_var($sellerName, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+		if(empty($sellerName) === true) {
+			throw(new \PDOException("seller name is invalid"));
+		}
+
+		//escape any mySQL wild cards
+		$sellerName = str_replace("_", "\\_", str_replace("%", "\\%", $sellerName));
+
+		//create query template
+		$query = "SELECT sellerId, sellerName, sellerStoreName, sellerLocation, sellerPhone, sellerEmail, sellerHash, sellerSalt FROM seller WHERE sellerName LIKE :sellerName";
+		$statement = $pdo->prepare($query);
+
+		//bind the seller name to the place holder in the template
+		$sellerName = "%$sellerName%";
+		$parameters = ["sellerName" => $sellerName];
+		$statement->execute($parameters);
+
+		//build an array of sellers
+		$sellers = new \SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(\PDO::FETCH_ASSOC);
+		while(($row = $statement->fetch()) !==false) {
+			try {
+				$seller = new Seller($row["sellerId"], $row["sellerName"], $row["sellerStoreName"], $row["sellerLocation"], $row["sellerPhone"], $row["sellerEmail"], $row["sellerHash"], $row["sellerSalt"]);
+				$sellers[$sellers->key()] = $seller;
+				$sellers->next();
+			} catch(\Exception $exception) {
+				//if the row couldn't be converted, rethrow it
+				throw(new \PDOException($exception->getMessage(), 0, $exception));
+			}
+		}
+		return($sellers);
+	}
+
 
 
 	}
